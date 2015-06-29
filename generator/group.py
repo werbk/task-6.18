@@ -27,12 +27,13 @@ for o, a in opts:
         f = str(a)
 
 
-
+file = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", f)
 test_data = [Group(group_name='', group_header='', group_footer='')] + [Group(group_name=random_string('name', 10),
                                                                               group_header=random_string('header', 10),
                                                                               group_footer=random_string('footer', 10))
                                                                               for i in range(n)]
 
+																			  
 with open(file, 'w') as out:
     jsonpickle.set_encoder_options("json", indent=2)
     out.write(jsonpickle.encode(test_data))
